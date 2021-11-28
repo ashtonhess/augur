@@ -7,6 +7,10 @@ Ashton Hess, Tyler Wilkins, Solomon DellaPenna, Jayson Ashford
 ## Branch Description
 
 This feature branch will be used for the creation of a new API endpoint. This endpoint will return line change data for a passsed user email. In the event that the passed email is invalid, the endpoint will return a response code to indicate the issue. Pseudocode for testing this feature is provided in this branch's Psuedocode/Tests directory. 
+## Feature Design
+
+
+This new endpoint will take 6 paramaters: email, repo_group_id, repo_id, period, begin_date, and end_date. This endpoint will return lines edited by email provided as a perameter. If no lines have been edited the database wo'nt be populated and the return message will tell the user that no lines have been edited. If no error, the lines will be returned and time edited.
 
 ### The rest of this README is the default Augur README
 
