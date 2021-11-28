@@ -25,6 +25,8 @@ def issues_first_time_opened(self, repo_group_id, repo_id=None, period='day', be
     if not end_date:
         end_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+    
+    #found on line 356 of contributors.py below
     if repo_id:
         linesChangedByAuthorSQL = s.sql.text("""
             SELECT cmt_author_email, date_trunc('week', cmt_author_date::date) as cmt_author_date, cmt_author_affiliation as affiliation,
