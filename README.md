@@ -14,6 +14,46 @@ The feature of this branch will be added as a .py file in the augur/metrics dire
 
 This new endpoint will take 2 parameters: email and repo_id. The endpont will then use these parameters to query the Augur database. The Endpoint will return a timeseries of comments made by the owner of the passed email to the specified repository. The Endpoint will also return a response code indicating the status of the requested operation. These codes will follow standard HTTP codes with 200 indicating a successful operation, 404 indicating a bad parameter, and 400 indicating a bad request (such as an empty parameter).
 
+## Augur Endpoint Layout
+
+````
+#SPDX-License-Identifier: MIT
+"""
+Metrics that provides data about contributors & their associated activity
+"""
+
+import datetime
+import sqlalchemy as s
+import pandas as pd
+from augur.util import register_metric
+
+@register_metric()
+def issues_first_time_opened(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
+    """
+    Endpoint description
+    """
+
+    if not begin_date:
+        begin_date = '1970-1-1 00:00:01'
+    if not end_date:
+        end_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    if repo_id:
+        #sql to return data for a repo
+
+        
+        results = pd.read_sql(issueNewContributor, self.database, params={'repo_id': repo_id, 'period': period,
+                                                                    'begin_date': begin_date, 'end_date': end_date})
+
+    else:
+        #sql to return data for a repo_group
+
+        results = pd.read_sql(issueNewContributor, self.database,
+                              params={'repo_group_id': repo_group_id, 'period': period,
+                                      'begin_date': begin_date, 'end_date': end_date})
+    return results
+````
+
 ### The rest of this README is the default Augur README
 
 # Augur
