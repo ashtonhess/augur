@@ -12,6 +12,8 @@ Our team plans to create new API endpoints allowing users to pass a contributor'
 
 Feature branches were created off of the main branch of our repository. Three of these branched were created in total, one for each proposed API endpoint to be created. The names of these branches are "contributions-by-email", "lines-by-email", and "comments-by-email". Brief descriptions of the features to be implemented are provided in the README file for each branch.  
 
+An additional branch was created named "deployment-test". This brcnch will serve as a buffer for merging code changes before merging those changes into the main branch. Essentially, this new branch will serve to test whether our code changes will break the main branch. If the deployment test branch does not break, the code can then be considered safe to merge into the main branch.
+
 Pseudocode was written for feature tests and was added to each feature branch. These tests cover three scenarios: valid paramaters are given, invalid paramaters are given, and no parameters are given. Each test checcks whether the correct response code was given by the endpoint as well as whether the expected data matches the response data. This pseudocode can be found in each branch under the Pseudocode/Tests directory.
 
 
