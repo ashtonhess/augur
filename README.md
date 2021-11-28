@@ -6,7 +6,7 @@ Ashton Hess, Tyler Wilkins, Solomon DellaPenna, Jayson Ashford
 
 ## Branch Description
 
-This feature branch will be used for the creation of a new API endpoint. This endpoint will return contribution data for a passsed user email. In the event that the passed email is invalid, the endpoint will return a response code to indicate the issue. Pseudocode for testing this feature is provided in this branch as well. 
+This feature branch will be used for the creation of a new API endpoint. This endpoint will return contribution data for a passsed user email. In the event that the passed email is invalid, the endpoint will return a response code to indicate the issue. Pseudocode for testing this feature is provided in this branch's Psuedocode/Tests directory.
 
 ### The rest of this README is the default Augur README
 
