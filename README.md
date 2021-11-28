@@ -12,6 +12,10 @@ This feature branch will be used for the creation of a new API endpoint. This en
 
 This new endpoint will take 6 paramaters: email, repo_group_id, repo_id, period, begin_date, and end_date. This endpoint will return lines edited by email provided as a perameter. If no lines have been edited the database wo'nt be populated and the return message will tell the user that no lines have been edited. If no error, the lines will be returned and time edited.
 
+## Augur Endpoint Layout
+
+code for endpoint is in Pseudocode/Tests
+
 ### The rest of this README is the default Augur README
 
 # Augur
