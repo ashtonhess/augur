@@ -18,8 +18,11 @@ Using the endpoint template provided by Dr. Goggins during Sprint2, code was add
 
 Documentation was updated as well. These changes can be seen in each of our feature branches (contributions-by-email, lines-by-email, and comments-by-email), the new sprint-3 Branch, and the main branch. A Sprint3 directory was added to the sprint-3 and main branches as well.
 
+Code changes from the feature branches were pushed to the deployment-test branch for the purpose of testing on our server during Sprint4.
+
 Development of Open API documentation was started as shown in the image below. Though the image clearly shows a bare-bones start to this documentation, the documentation will be updated as features are developed. 
 
+ 
 ![img.png](img.png)
 
 ## Team reflection (obstacles encountered, reflections, goals):
