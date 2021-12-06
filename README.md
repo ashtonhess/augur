@@ -10,6 +10,8 @@ Ashton Hess, Tyler Wilkins, Solomon DellaPenna, Jayson Ashford
 
 This branch is meant to serve the purpose of testing code before commiting to the main branch. To acheive this, this branch will be kept even with main and code changes will be merged into this branch before being merged into the main branch. Only in the case that this branch functions successfully will the code changes then be merged into the main branch. 
 
+Last merge: merged in initial drafts of feature branch code
+
 
 ### The rest of this README is the default Augur README
 
