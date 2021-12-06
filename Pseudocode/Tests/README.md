@@ -10,7 +10,9 @@ repID = Repository ID known to be valid taken from the Augur database
 
 ## Valid User Test:
 ````
+
 expected = result of direct SQL query to the AUGUR database for user line change data using the valid email and repID values. 
+
 response = result of passing email and repID to the created API endpoint
 
 IF response code of response != 200
