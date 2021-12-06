@@ -14,6 +14,10 @@ The feature of this branch will be added as a .py file in the augur/metrics dire
 
 This new endpoint will take 2 parameters: email and repo_id. The endpont will then use these parameters to query the Augur database. The Endpoint will return a timeseries of comments made by the owner of the passed email to the specified repository. The Endpoint will also return a response code indicating the status of the requested operation. These codes will follow standard HTTP codes with 200 indicating a successful operation, 404 indicating a bad parameter, and 400 indicating a bad request (such as an empty parameter).
 
+## Feature Development Progress
+
+Code for this feature has not yet been developed.
+
 ## Augur Endpoint Layout
 
 ````
