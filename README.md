@@ -14,6 +14,10 @@ The feature of this branch will be added as a .py file in the augur/metrics dire
 
 This new endpoint will take 6 paramaters: email, repo_group_id, repo_id, period, begin_date, and end_date. The endpont will then use these parameters to query the Augur database. The Endpoint will return a timeseries of contributions made by the owner of the passed email to the specified repository. The Endpoint will also return a response code indicating the status of the requested operation. These codes will follow standard HTTP codes with 200 indicating a successful operation, 404 indicating a bad paramater, and 400 indicating a bad request (such as an empty paramater).
 
+## Feature Development Progress
+
+An initial draft of code for this feature has been committed to this branch. This code can be found in the file "contributions_by_email.py" under the augur/metrics directory. This draft follows the above design description and is based on the endpoint template shown below. This code is not ready to be considered the final product of our project. However, it serves as an initial draft from which our final product can be developed over the course of Sprint4.
+
 ## Augur Endpoint Layout
 
 ````
