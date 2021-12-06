@@ -1,4 +1,6 @@
-# CS4320 Group 1: Contributions by Email Feature Branch
+
+# CS4320 Group 1
+
 
 Group Members:
 
@@ -6,57 +8,8 @@ Ashton Hess, Tyler Wilkins, Solomon DellaPenna, Jayson Ashford
 
 ## Branch Description
 
-This feature branch will be used for the creation of a new API endpoint. This endpoint will return contribution data for a passsed user email. In the event that the passed email is invalid, the endpoint will return a response code to indicate the issue. Pseudocode for testing this feature is provided in this branch's Psuedocode/Tests directory.
+This branch is meant to serve the purpose of testing code before commiting to the main branch. To acheive this, this branch will be kept even with main and code changes will be merged into this branch before being merged into the main branch. Only in the case that this branch functions successfully will the code changes then be merged into the main branch. 
 
-## Feature Design
-
-The feature of this branch will be added as a .py file in the augur/metrics directory. The format of the file will follow that of already existing endpoints in the metrics directory. Below is included a basic layout provided by Dr. Goggins of Augur API endpoints which will be used to create this file. 
-
-This new endpoint will take 6 paramaters: email, repo_group_id, repo_id, period, begin_date, and end_date. The endpont will then use these parameters to query the Augur database. The Endpoint will return a timeseries of contributions made by the owner of the passed email to the specified repository. The Endpoint will also return a response code indicating the status of the requested operation. These codes will follow standard HTTP codes with 200 indicating a successful operation, 404 indicating a bad paramater, and 400 indicating a bad request (such as an empty paramater).
-
-## Feature Development Progress
-
-An initial draft of code for this feature has been committed to this branch. This code can be found in the file "contributions_by_email.py" under the augur/metrics directory. This draft follows the above design description and is based on the endpoint template shown below. This code is not ready to be considered the final product of our project. However, it serves as an initial draft from which our final product can be developed over the course of Sprint4.
-
-## Augur Endpoint Layout
-
-````
-#SPDX-License-Identifier: MIT
-"""
-Metrics that provides data about contributors & their associated activity
-"""
-
-import datetime
-import sqlalchemy as s
-import pandas as pd
-from augur.util import register_metric
-
-@register_metric()
-def issues_first_time_opened(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
-    """
-    Endpoint description
-    """
-
-    if not begin_date:
-        begin_date = '1970-1-1 00:00:01'
-    if not end_date:
-        end_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-    if repo_id:
-        #sql to return data for a repo
-
-        
-        results = pd.read_sql(issueNewContributor, self.database, params={'repo_id': repo_id, 'period': period,
-                                                                    'begin_date': begin_date, 'end_date': end_date})
-
-    else:
-        #sql to return data for a repo_group
-
-        results = pd.read_sql(issueNewContributor, self.database,
-                              params={'repo_group_id': repo_group_id, 'period': period,
-                                      'begin_date': begin_date, 'end_date': end_date})
-    return results
-````
 
 ### The rest of this README is the default Augur README
 
