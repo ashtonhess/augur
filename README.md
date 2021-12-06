@@ -12,9 +12,49 @@ This feature branch will be used for the creation of a new API endpoint. This en
 
 This new endpoint will take 6 paramaters: email, repo_group_id, repo_id, period, begin_date, and end_date. This endpoint will return lines edited by email provided as a perameter. If no lines have been edited the database wo'nt be populated and the return message will tell the user that no lines have been edited. If no error, the lines will be returned and time edited.
 
+## Feature Development Progress
+
+An initial draft of code for this feature has been committed to this branch. This code can be found in the file "lines_by_email.py" under the augur/metrics directory. This draft follows the above design description and is based on the endpoint template shown below. This code is not ready to be considered the final product of our project. However, it serves as an initial draft from which our final product can be developed over the course of Sprint4.
+
 ## Augur Endpoint Layout
 
-code for endpoint is in Pseudocode/Tests
+````
+#SPDX-License-Identifier: MIT
+"""
+Metrics that provides data about contributors & their associated activity
+"""
+
+import datetime
+import sqlalchemy as s
+import pandas as pd
+from augur.util import register_metric
+
+@register_metric()
+def issues_first_time_opened(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
+    """
+    Endpoint description
+    """
+
+    if not begin_date:
+        begin_date = '1970-1-1 00:00:01'
+    if not end_date:
+        end_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    if repo_id:
+        #sql to return data for a repo
+
+        
+        results = pd.read_sql(issueNewContributor, self.database, params={'repo_id': repo_id, 'period': period,
+                                                                    'begin_date': begin_date, 'end_date': end_date})
+
+    else:
+        #sql to return data for a repo_group
+
+        results = pd.read_sql(issueNewContributor, self.database,
+                              params={'repo_group_id': repo_group_id, 'period': period,
+                                      'begin_date': begin_date, 'end_date': end_date})
+    return results
+````
 
 ### The rest of this README is the default Augur README
 
