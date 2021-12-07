@@ -25,6 +25,8 @@ Development of Open API documentation was started as shown in the image below. T
 
 ![img.png](Sprint3/img.png)
 
+Our plan of execution for the rest of the project is as follows: -testing SQL queries on our now populated Augur database -building out a .py file in augur->metrics to contain our endpoints -testing endpoints
+
 ## Team reflection (obstacles encountered, reflections, goals):
 
 For Sprint 3, one of our obstacles was getting a populated database established on our server with which we can test our endpoints. However, after several attempts, this obstacle was finally overcome. An additional obstacle that has been present since Sprint1, is the issue of communication. For whatever reason, communicating has been very difficult in our group, which makes distribution of work difficult as well. As we enter Sprint4, our group needs to focus on communication, and ensure that everyone knows what is happening and can find ways in which they can contribute to the project.
