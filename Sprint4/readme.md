@@ -14,4 +14,6 @@ The information required to connect to our database instance that is running on 
  The full URL to connect from a DB app is as follows:
  jdbc:postgresql://ec2-18-188-49-193.us-east-2.compute.amazonaws.com:5432/augur
  
+ Please ensure you are using a PostgreSQL driver to connect.
+ 
  Using the Datagrip application from Jetbrains, this is what I have been using to connect. 
