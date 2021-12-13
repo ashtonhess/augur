@@ -9,7 +9,7 @@ import pandas as pd
 from augur.util import register_metric
 
 @register_metric()
-def lines_changed_by_email(self, repo_group_id, repo_id=None, email_param):
+def lines_changed_by_email(self, repo_group_id, email_param, repo_id=None):
     """
     based on lines_changed_by_author
     Returns number of lines changed by specified author per day
