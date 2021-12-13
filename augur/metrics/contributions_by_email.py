@@ -9,7 +9,7 @@ import pandas as pd
 from augur.util import register_metric
 
 @register_metric()
-def contributions_by_email(self, repo_group_id, repo_id=None, period='all', begin_date=None, end_date=None, email_param):
+def contributions_by_email(self, repo_group_id, email_param, repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
     Returns a timeseries of all the contributions by the specified authorto a project.
