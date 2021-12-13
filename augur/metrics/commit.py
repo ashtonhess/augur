@@ -399,7 +399,7 @@ def lines_changed_by_email(self, repo_group_id, email_param, repo_id=None):
         results = pd.read_sql(linesChangedByAuthorSQL, self.database, params={"repo_group_id": repo_group_id})
         return results
 
-    @register_metric()
+@register_metric()
 def contributions_by_email(self, repo_group_id, email_param, repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
