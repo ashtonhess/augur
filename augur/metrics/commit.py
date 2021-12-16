@@ -400,7 +400,7 @@ def lines_changed_by_email(self, repo_group_id, repo_id=None):
         return results
 
 @register_metric()
-def contributions_by_email(self, repo_group_id, repo_id=None, period='all', begin_date=None, end_date=None):
+def contributions_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
     Returns a timeseries of all the contributions by the specified authorto a project.
@@ -449,7 +449,7 @@ def contributions_by_email(self, repo_group_id, repo_id=None, period='all', begi
                     ORDER BY cmt_author_date ASC
                     )
                 ) a, repo
-            WHERE a.repo_id = repo.repo_id
+            WHERE a.repo_id = repo.repo_id and a.email = :eParam
             GROUP BY a.email, a.repo_id, repo_name
         """)
 
@@ -483,11 +483,11 @@ def contributions_by_email(self, repo_group_id, repo_id=None, period='all', begi
                     ORDER BY cmt_author_date ASC
                     )
                 ) a, repo
-            WHERE a.repo_id = repo.repo_id
+            WHERE a.repo_id = repo.repo_id and a.email = :eParam
             GROUP BY  a.email, a.repo_id, repo_name
             ORDER BY commits desc, email
         """)
 
-        results = pd.read_sql(contributorsSQL, self.database, params={'repo_group_id': repo_group_id, 'period': period,
+        results = pd.read_sql(contributorsSQL, self.database, params={'repo_group_id': repo_group_id, 'eParam': eParam, 'period': period,
                                                                 'begin_date': begin_date, 'end_date': end_date})
     return results
