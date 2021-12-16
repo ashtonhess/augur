@@ -369,7 +369,7 @@ def top_committers(self, repo_group_id, repo_id=None, year=None, threshold=0.5):
     return results
 
 @register_metric()
-def lines_changed_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=None):
+def lines_changed_by_email(self, repo_group_id, repo_id=None):
     """
     based on lines_changed_by_author
     Returns number of lines changed by specified author per day
@@ -381,7 +381,7 @@ def lines_changed_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=
             SELECT cmt_author_email, date_trunc('week', cmt_author_date::date) as cmt_author_date, cmt_author_affiliation as affiliation,
                 SUM(cmt_added) as additions, SUM(cmt_removed) as deletions, SUM(cmt_whitespace) as whitespace, repo_name
             FROM commits JOIN repo ON commits.repo_id = repo.repo_id
-            WHERE commits.repo_id = :repo_id AND commits.cmt_author_email = :Param
+            WHERE commits.repo_id = :repo_id
             GROUP BY commits.repo_id, date_trunc('week', cmt_author_date::date), cmt_author_affiliation, cmt_author_email, repo_name
             ORDER BY date_trunc('week', cmt_author_date::date) ASC;
         """)
@@ -392,7 +392,7 @@ def lines_changed_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=
             SELECT cmt_author_email, date_trunc('week', cmt_author_date::date) as cmt_author_date, cmt_author_affiliation as affiliation,
                 SUM(cmt_added) as additions, SUM(cmt_removed) as deletions, SUM(cmt_whitespace) as whitespace
             FROM commits
-            WHERE repo_id in (SELECT repo_id FROM repo WHERE repo_group_id=:repo_group_id) AND cmt_author_email = :eParam
+            WHERE repo_id in (SELECT repo_id FROM repo WHERE repo_group_id=:repo_group_id)
             GROUP BY repo_id, date_trunc('week', cmt_author_date::date), cmt_author_affiliation, cmt_author_email
             ORDER BY date_trunc('week', cmt_author_date::date) ASC;
         """)
@@ -400,7 +400,7 @@ def lines_changed_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=
         return results
 
 @register_metric()
-def contributions_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=None, period='all', begin_date=None, end_date=None):
+def contributions_by_email(self, repo_group_id, repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
     Returns a timeseries of all the contributions by the specified authorto a project.
@@ -444,7 +444,7 @@ def contributions_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=
                     -- cmt_author_affiliation as affiliation,
                         -- SUM(cmt_added) as additions, SUM(cmt_removed) as deletions, SUM(cmt_whitespace) as whitespace, 
                     FROM commits
-                    WHERE commits.repo_id = :repo_id AND commits.cmt_author_email = :eParam
+                    WHERE commits.repo_id = :repo_id
                     GROUP BY commits.repo_id, cmt_author_date, cmt_author_affiliation, cmt_author_email
                     ORDER BY cmt_author_date ASC
                     )
@@ -478,7 +478,7 @@ def contributions_by_email(self, repo_group_id, eParam='s@goggins.com', repo_id=
                     -- cmt_author_affiliation as affiliation,
                         -- SUM(cmt_added) as additions, SUM(cmt_removed) as deletions, SUM(cmt_whitespace) as whitespace, 
                     FROM commits JOIN repo ON repo.repo_id = commits.repo_id
-                    WHERE repo_group_id = :repo_group_id AND cmt_author_email = :eParam
+                    WHERE repo_group_id = :repo_group_id
                     GROUP BY commits.repo_id, cmt_author_date, cmt_author_affiliation, cmt_author_email
                     ORDER BY cmt_author_date ASC
                     )
