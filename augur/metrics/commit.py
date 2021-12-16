@@ -369,11 +369,11 @@ def top_committers(self, repo_group_id, repo_id=None, year=None, threshold=0.5):
     return results
 
 @register_metric()
-def lines_changed_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=None):
+def lines_changed_by_email(self, repo_group_id, eParam, repo_id=None):
     """
     based on lines_changed_by_author
     Returns number of lines changed by specified author per day
-    :param eParam: the email address used to filter results, default to "s@goggins.com" to show functionality
+    :param eParam: the email address used to filter results
     """
 
     if repo_id:
@@ -400,7 +400,7 @@ def lines_changed_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=
         return results
 
 @register_metric()
-def contributions_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=None, period='all', begin_date=None, end_date=None):
+def contributions_by_email(self, repo_group_id, eParam, repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
     Returns a timeseries of all the contributions by the specified author email.
@@ -409,7 +409,7 @@ def contributions_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=
     commits
     :param repo_id: The repository's id
     :param repo_group_id: The repository's group id
-    :param eParam: the email address used to filter results, default to "s@goggins.com" to show functionality
+    :param eParam: the email address used to filter results
   -----  :param period: To set the periodicity to 'all', day', 'week', 'month' or 'year', defaults to 'all'
   -----  :param begin_date: Specifies the begin date, defaults to '1970-1-1 00:00:00'
   -----  :param end_date: Specifies the end date, defaults to datetime.now()
@@ -454,7 +454,7 @@ def contributions_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=
             GROUP BY a.email, a.repo_id, repo_name
         """)
 
-        results = pd.read_sql(contributorsSQL, self.database, params={'repo_id': repo_id, 'period': period,
+        results = pd.read_sql(contributorsSQL, self.database, params={'repo_id': repo_id, 'eParam': eParam, 'period': period,
                                                                 'begin_date': begin_date, 'end_date': end_date})
     else:
         contributorsSQL = s.sql.text("""
