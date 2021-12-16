@@ -373,7 +373,7 @@ def lines_changed_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=
     """
     based on lines_changed_by_author
     Returns number of lines changed by specified author per day
-    :param repo_url: the repository's URL
+    :param eParam: the email address used to filter results, default to "s@goggins.com" to show functionality
     """
 
     if repo_id:
@@ -403,12 +403,13 @@ def lines_changed_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=
 def contributions_by_email(self, repo_group_id, eParam="s@goggins.com", repo_id=None, period='all', begin_date=None, end_date=None):
     """
     based on contributors_code_development
-    Returns a timeseries of all the contributions by the specified authorto a project.
+    Returns a timeseries of all the contributions by the specified author email.
     DataFrame has these columns:
     date
     commits
     :param repo_id: The repository's id
     :param repo_group_id: The repository's group id
+    :param eParam: the email address used to filter results, default to "s@goggins.com" to show functionality
   -----  :param period: To set the periodicity to 'all', day', 'week', 'month' or 'year', defaults to 'all'
   -----  :param begin_date: Specifies the begin date, defaults to '1970-1-1 00:00:00'
   -----  :param end_date: Specifies the end date, defaults to datetime.now()
