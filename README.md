@@ -10,6 +10,9 @@ Our team plans to create new API endpoints allowing users to pass a contributor'
 
 ## Progress report (indication about whether or not to update scope):
 
+### Progress report: Sprint 1 and 2 can be found in their respective branches. 
+
+### Progress report: Sprint 3
 After several attempts and sessions with Dr. Goggins, the Augur database was successfully populated with the necessary data for developing our new API endpoints (thank you Ashton).
 
 The existing Augur Metrics endpoints were reviewed in an effort to better understand how Augur;s API endpoints work. As well, this review provided us with a better understanding of existing SQL queries which may be able to serve as a basis for our own endpoint development.
@@ -26,6 +29,9 @@ Development of Open API documentation was started as shown in the image below. T
 ![img.png](Sprint3/img.png)
 
 Our plan of execution for the rest of the project is as follows: -testing SQL queries on our now populated Augur database -building out a .py file in augur->metrics to contain our endpoints -testing endpoints
+
+### Progress report: Sprint 4
+
 
 ## Team reflection (obstacles encountered, reflections, goals):
 
