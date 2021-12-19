@@ -46,7 +46,7 @@ If you want to see where this code is implemented, nagivate to augur/metrics/com
 
 For Sprint 3, one of our obstacles was getting a populated database established on our server with which we can test our endpoints. However, after several attempts, this obstacle was finally overcome. An additional obstacle that has been present since Sprint1, is the issue of communication. For whatever reason, communicating has been very difficult in our group, which makes distribution of work difficult as well. As we enter Sprint4, our group needs to focus on communication, and ensure that everyone knows what is happening and can find ways in which they can contribute to the project.
 
-### Files for this sprint can be found in the "Sprint3" directory
+
 
 ### The rest of this README is the default Augur README
 
