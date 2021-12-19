@@ -13,6 +13,8 @@ Our team plans to create new API endpoints allowing users to pass a contributor'
 ### Progress report: Sprint 1 and 2 can be found in their respective branches. 
 
 ### Progress report: Sprint 3
+Note: files and specifics for this sprint can be found in the Sprint-3 branch. 
+
 After several attempts and sessions with Dr. Goggins, the Augur database was successfully populated with the necessary data for developing our new API endpoints (thank you Ashton).
 
 The existing Augur Metrics endpoints were reviewed in an effort to better understand how Augur;s API endpoints work. As well, this review provided us with a better understanding of existing SQL queries which may be able to serve as a basis for our own endpoint development.
@@ -31,6 +33,11 @@ Development of Open API documentation was started as shown in the image below. T
 Our plan of execution for the rest of the project is as follows: -testing SQL queries on our now populated Augur database -building out a .py file in augur->metrics to contain our endpoints -testing endpoints
 
 ### Progress report: Sprint 4
+After completing Sprint 3, the next step in our project was to start testing our queries on the Augur database. To develop these queries, we used the structure of existing queries and made small changes to implement our own endpoints. After testing these queries, we then needed to implement them in the actual code of Augur. During the testing, we realized that we would need to narrow our scope down to not include our comments-by-email feature. This is because implementing this feature would require many other tables to be queried. To keep the scope of our project very focused, we chose to take this feature out and to focus on the features that are most closely related. 
+
+Thanks to Tyler, we were able to fully implement two features, lines changed by email and contributions by email. The endpoint for lines changed by email takes in a parameter for email, and returns how many additions and/or deletions were made by a specific user per day. The endpoint for contributions by email takes in a parameter for email, and returns a timeseries of the amount of lines added by a specific user. 
+
+If you want to see where this code is implemented, nagivate to augur/metrics/commit.py. The code for lines changed by email is located between lines 371-400. The code for contributions by email is located between lines 402-494. In this code, we used a parameter "eParam" to specify the email that is being queried for. These endpoints were added to the commit.py so we could easily know the specific path of to the functions and not have to add more files to Augur. Within this code, comments were also added to specify what exactly our endpoints do. 
 
 
 ## Team reflection (obstacles encountered, reflections, goals):
