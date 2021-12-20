@@ -9,6 +9,19 @@ Ashton Hess, Tyler Wilkins, Solomon DellaPenna, Jayson Ashford
 Our team plans to create new API endpoints allowing users to pass a contributor's email as a parameter. The endpoints will then return data on the contributions of the contributor with the specific email address (if they exist). The data returned on a successful operation of these endpoints will be similar to the data already being fetched by existing endpoints, with the distinction of these new endpoints being contributor specific.
 
 ## Project Documentation and Functionality Showcase
+### Code Changes
+The code we added to Augur can be located at augur/metrics/commit.py in lines 371-494. The block from line 371-401 is for our lines changed by email endpoint, and the second block from line 402-494 is for our contributions by email endpoint. 
+
+### Functionailty Showcase
+https://app.swaggerhub.com/apis-docs/Tjw38t/Software-Engineering-Group-1/0.1 
+
+Using the link above, you will be directed to SwaggerHub documentation that we developed to showcase how our endpoints work. This documentation is interactive, so you are able to change the parameters within the query. This provides a full demonstration of our additions working, and also shows the user exactly what will be returned from the endpoint. 
+
+Also, you can click the links below to be directed to an example of our endpoints' outputs. These outputs are for Goggin's email.
+
+Lines changed by email: http://ec2-18-188-49-193.us-east-2.compute.amazonaws.com:5000/api/unstable/repo-groups/1/lines-changed-by-email?eParam=s@goggins.com
+
+Contributions by email: http://ec2-18-188-49-193.us-east-2.compute.amazonaws.com:5000/api/unstable/repo-groups/1/contributions-by-email?eParam=s@goggins.com
 
 ## Progress report (indication about whether or not to update scope):
 
@@ -41,11 +54,19 @@ Thanks to Tyler, we were able to fully implement two features, lines changed by 
 
 If you want to see where this code is implemented, nagivate to augur/metrics/commit.py. The code for lines changed by email is located between lines 371-400. The code for contributions by email is located between lines 402-494. In this code, we used a parameter "eParam" to specify the email that is being queried for. These endpoints were added to the commit.py so we could easily know the specific path of to the functions and not have to add more files to Augur. Within this code, comments were also added to specify what exactly our endpoints do. 
 
+If you would like to see how the endpoints work exactly, locate the link to SwaggerHub above (Functionality Showcase). This link provides interactive documentation in which you may test our endpoints with different input parameters of your choosing. 
+
 
 ## Team reflection (obstacles encountered, reflections, goals):
 
+### Sprint 1 and 2
+Team reflections for these sprints can be found in their respective branches. 
+
+### Sprint 3
 For Sprint 3, one of our obstacles was getting a populated database established on our server with which we can test our endpoints. However, after several attempts, this obstacle was finally overcome. An additional obstacle that has been present since Sprint1, is the issue of communication. For whatever reason, communicating has been very difficult in our group, which makes distribution of work difficult as well. As we enter Sprint4, our group needs to focus on communication, and ensure that everyone knows what is happening and can find ways in which they can contribute to the project.
 
+### Sprint 4
+For Sprint 4, our biggest obstacle has been trying to complete the project with only half of our team present. While it is quite obvious from the history of commits on this fork, only half of our team has actually worked on this, basically since day one. This has proven to make the project significantly harder on us two that are doing all the work. Thankfully, with Goggins allowing late submissions, we have been able to get through finals and have time to work on this again. While I wish we could have submitted this on time, with our other two team members either ghosting us entirely or not actually committing anything to our project, this was not possible.
 
 
 ### The rest of this README is the default Augur README
